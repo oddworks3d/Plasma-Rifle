@@ -2,7 +2,7 @@
 
 Code repository for the software running on the Plasma Rifle. Created using MicroPython with a new handy dandy GUI Installer that will flash micropython and also upload the code so you no longer have to use Thonny!
 
-
+The installation couldn't be simpler!
 
 # Installation
 ## Download appropiate installer
@@ -36,9 +36,11 @@ After selecting your Pi Pico, hit `Install MicroPython` to begin installing Micr
 Once MicroPython is installed (Or if you have already installed MicroPython you can hit the `Skip` button) you'll move onto Step 2:
 
 ![alt text](https://github.com/oddworks3d/Plasma-Rifle/blob/main/Images/step2-1.jpg?raw=true)
-*Before continuing ensure your Pi Pico is **NOT** in USB Mass Storage mode by and that it is connected to your computer*
+*Before continuing ensure your Pi Pico is **NOT** in USB Mass Storage mode and that it is connected to your computer*
 
-From the dropdown, select your connected Pi Pico which will look different depending on what devices are connected and if you are on windows or MacOS
+From the dropdown, select your connected Pi Pico which will look different depending on what devices are connected and if you are on windows or MacOS.
+
+If the correct com port isn't showing or you're unable to select the Pico, disconnect all other serial devices from your computer and hit `Refresh`
 
 > For mac it will look similar to:
 > `/dev/tty.usbmodem21301`
@@ -48,7 +50,7 @@ From the dropdown, select your connected Pi Pico which will look different depen
 
 After selecting the correct device from the list of devices, hit the `Install Plasma Rifle Code` button to begin installing.
 
-If nothing fails and there are no errors you're done! Enjoy!
+If nothing fails and there are no errors, you're done! Enjoy!
 
 
 ## Troubleshooting
