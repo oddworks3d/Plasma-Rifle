@@ -11,7 +11,7 @@ import json
 from sys import exit
 
 # Overlock pico to max cpu freq
-freq(190000000)
+freq(180000000)
 
 # Hardcoded config file for if it doesnt exist on the pico
 config = {"buttons": {"fireBtn": 11, "cooldownBtn": 12},
@@ -517,12 +517,13 @@ class Firing(State):
 
     def enter(self, sm):
         self.fireLength = Timer(0, 2, 1)
-        self.offCooldown = Timer(0, 5, 1)
+        self.offCooldown = Timer(0, 4, 1)
         lights['top-front'].setColor(config['colors']['flash'])
         lights['bottom-front'].setColor(config['colors']['flash'])
         lights['top-front'].setBrightness(255)
         lights['bottom-front'].setBrightness(255)
         lights['top-back'].animateColor(config['colors']['hot'], 4)
+        vibrationMotor.high()
 
     def exit(self, sm):
         lights['top-front'].setColor(config['colors']['normal'])
@@ -537,7 +538,6 @@ class Firing(State):
             sm.frame += 1
 
     def update(self, sm):
-        vibrationMotor.high()
         if self.fireLength.update(True):
             lights['top-front'].setColor(config['colors']['normal'])
             lights['bottom-front'].setColor(config['colors']['normal'])
