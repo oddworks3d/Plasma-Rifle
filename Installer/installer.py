@@ -1,11 +1,14 @@
 # Coded by Tea S.
 # 2022
 import shutil
-import pyboard
 import sys
 import glob
+import pyboard
 import serial
 import webview
+import requests
+
+CODEURL = "https://github.com/oddworks3d/Plasma-Rifle/blob/main/main.py?raw=true"
 
 def serial_ports():
     """ Lists serial port names
@@ -51,20 +54,26 @@ class Api():
         return serial_ports()
     def installCode(self,port):
         try:
+            print("download file")
+            response = requests.get(CODEURL)
+        except Exception as e:
+            print(e)
+            return str(e)
+        try:
             pyb = pyboard.Pyboard(port,115200)
             print("connection made");
             pyb.enter_raw_repl()
             print("entered repl");
-            ret = pyb.fs_put("main.py","main.py")
+            pyb.fs_put_direct(response.content,"main.py")
             print("copied");
-            print(ret)
             pyb.exit_raw_repl()
+            print("exit raw repl")
             return "success"
         except Exception as e:
             print(e)
             return str(e)
 api = Api()
 window = webview.create_window('Plasma Rifle Code Installer', 'render.html',js_api=api,width=450,height=350,resizable=False)
-webview.start(debug=True)
+webview.start()
 
 

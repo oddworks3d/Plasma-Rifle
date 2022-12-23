@@ -556,7 +556,10 @@ class Pyboard:
                     written += len(data)
                     progress_callback(written, src_size)
         self.exec_("f.close()")
-
+    def fs_put_direct(self, data, dest):
+        self.exec_("f=open('%s','wb')\nw=f.write" % dest)
+        self.exec_("w(" + repr(data) + ")")
+        self.exec_("f.close()")
     def fs_mkdir(self, dir):
         self.exec_("import uos\nuos.mkdir('%s')" % dir)
 

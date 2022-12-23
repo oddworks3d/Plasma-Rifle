@@ -131,3 +131,4 @@ dmypy.json
 #Pi pico
 .picowgo
 .vscode
+/installer/Releases

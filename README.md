@@ -53,8 +53,19 @@ After selecting the correct device from the list of devices, hit the `Install Pl
 If nothing fails and there are no errors, you're done! Enjoy!
 
 
-## Troubleshooting
+# Troubleshooting
 
 If you don't want to run the installer for whatever reason, the code is available to download and install on the Pi Pico using Thonny (https://thonny.org)
 
 Simply download the `main.py` file from the binaries release under the Releases tab and open it in thonny, save it to the pico, and that's it!.
+
+# Building
+
+cd into installer dir
+
+For mac:
+> python setup.py py2app
+
+For WINDOWS:
+> python -m PyInstaller --add-data 'render.html;.' --add-binary 'm.uf2;.' --add-data 'picnic.css;.' --add-data 'style.css;.' --distpath './Releases/Windows-Build' --onefile --noconsole installer.py 
+
