@@ -30,7 +30,7 @@ config = {"buttons": {"fireBtn": 11, "cooldownBtn": 12},
     'normal': [[0, 255, 150], [255, 255, 255]],
     'hot': [[225, 0, 0], [1, 1, 1]],
     'flash': [[255, 255, 255], [15, 15, 15]]},
-    "servos": {"fins": {"invert": True, "start": 45, "speed": 200, "curpos": 45, "end": 125, "pin": 16}},
+    "servos": {"fins": {"invert": True, "start": 45, "speed": 200, "curpos": 45, "end": 125, "pin": 7}},
     "state": "Main"}
 
 
